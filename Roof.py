@@ -1,4 +1,5 @@
 from pyblockworld import World
+import math
 
 class Roof():
     def __init__(self, bw: World, pos: tuple):
@@ -12,10 +13,11 @@ class Roof():
         x,y,z = self.pos
         x += 1
         steps = 0
-        while steps < (self.width // 2):
-            if steps == 0:
-                self.__bw.setBlocks(x, y, z, x + self.width-1, y, z + self.depth-1, self.roof_material_id)
-            self.__bw.setBlocks(x+steps,y,z,x+self.width-steps,y+steps,z+self.depth, self.roof_material_id)
+        half = self.width // 2
+        while steps <= half:
+            self.__bw.setBlocks(math.ceil(x+steps), y, z,
+                                math.ceil(x +self.width- steps), math.ceil(y + steps), math.ceil(z + self.depth),
+                                self.roof_material_id)
             steps += 1
 
 def buildRoof(world: World):
