@@ -63,7 +63,3 @@ def place4Walls(world: World):
     placeTwoWallsWithDoor(world)
     placeTwoWallsWithWindow(world)
 
-
-world = World()
-world.build_key_pressed = place4Walls
-world.run()

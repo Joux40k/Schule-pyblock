@@ -15,7 +15,7 @@ class Roof():
         steps = 0
         half = self.width // 2
         while steps <= half:
-            self.__bw.setBlocks(math.ceil(x+steps), y, z,
+            self.__bw.setBlocks(math.ceil(x+steps), math.ceil(y), math.ceil(z),
                                 math.ceil(x +self.width- steps), math.ceil(y + steps), math.ceil(z + self.depth),
                                 self.roof_material_id)
             steps += 1
@@ -24,6 +24,3 @@ def buildRoof(world: World):
     roof = Roof(world, world.player_position())
     roof.build()
 
-world = World()
-world.build_key_pressed = buildRoof
-world.run()

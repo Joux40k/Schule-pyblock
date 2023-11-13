@@ -6,7 +6,6 @@ class Wall():
         self.height = 5
         self.pos = pos
         self.rotated = False
-
         self.material_id = "default:stone"
         self._bw = bw
 
